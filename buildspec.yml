@@ -1,0 +1,40 @@
+# BuildSpec 버전
+version: 0.2
+
+phases:
+  # 빌드 환경 설정
+  install:
+    runtime-versions:
+      python: 3.9    # Python 설치 (필요한 경우)
+    commands:
+      - apt-get update
+      - apt-get install -y software-properties-common
+      
+  # 빌드 전 실행할 명령어
+  pre_build:
+    commands:
+      - echo "Installing dependencies..."
+      - apt-get install -y curl wget unzip
+      
+  # 실제 빌드 명령어
+  build:
+    commands:
+      - echo "Build started on `date`"
+      - echo "Running tests..."
+      # 여기에 실제 빌드 및 테스트 명령어 추가
+      # 예: - python -m pytest tests/
+      
+  # 빌드 후 실행할 명령어
+  post_build:
+    commands:
+      - echo "Build completed on `date`"
+      - echo "Preparing artifacts..."
+      # 여기에 아티팩트 준비 명령어 추가
+      # 예: - zip -r application.zip ./*
+
+# 빌드 결과물 설정
+artifacts:
+  files:
+    - '**/*'    # 모든 파일을 포함
+  # base-directory: 'dist'  # 결과물이 있는 디렉토리 지정 (필요한 경우)
+  discard-paths: no    # 파일 경로 유지
