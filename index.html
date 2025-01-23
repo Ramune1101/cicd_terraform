@@ -1,1 +1,36 @@
- 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS CICD 데모</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AWS CICD 파이프라인 데모</h1>
+            <p class="subtitle">with Terraform</p>
+        </header>
+        <main>
+            <section class="content">
+                <h2>구현된 기능</h2>
+                <ul>
+                    <li>GitHub 연동</li>
+                    <li>CodeBuild를 통한 빌드 자동화</li>
+                    <li>CodeDeploy를 통한 배포 자동화</li>
+                    <li>Terraform으로 인프라 관리</li>
+                </ul>
+            </section>
+            <section class="status">
+                <h2>배포 상태</h2>
+                <p>최근 배포 시간: <span id="deployTime"></span></p>
+            </section>
+        </main>
+        <footer>
+            <p>Created by Your Name</p>
+        </footer>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html> 
