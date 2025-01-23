@@ -1,0 +1,35 @@
+version: 0.0
+os: linux
+
+# 파일 복사 설정
+files:
+  - source: /
+    destination: /var/www/html/
+    overwrite: true
+
+# 권한 설정
+permissions:
+  - object: /var/www/html/
+    pattern: "**"
+    owner: ubuntu
+    group: ubuntu
+    mode: 755
+
+# 배포 수명 주기 후크
+hooks:
+  BeforeInstall:
+    - location: scripts/before_install.sh
+      timeout: 300
+      runas: ubuntu
+  AfterInstall:
+    - location: scripts/after_install.sh
+      timeout: 300
+      runas: ubuntu
+  ApplicationStart:
+    - location: scripts/start_application.sh
+      timeout: 300
+      runas: ubuntu
+  ValidateService:
+    - location: scripts/validate_service.sh
+      timeout: 300
+      runas: ubuntu 
